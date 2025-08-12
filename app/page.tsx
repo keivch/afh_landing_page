@@ -1,3 +1,5 @@
+import CallToAction from "@/components/layout/callToAction";
+import Footer from "@/components/layout/footer";
 import Header from "../components/layout/Header";
 import Card from "../components/ui/Card";
 export default function Home() {
