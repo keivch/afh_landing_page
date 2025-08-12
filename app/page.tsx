@@ -62,6 +62,8 @@ export default function Home() {
     <div className="font-sans grid grid-rows items-center justify-items-center gap-16">
       <Header />
       <Card items={values} title={"Nuestros servicios"} />
+      <CallToAction/>
+      <Footer />
     </div>
   );
 }
