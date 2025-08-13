@@ -5,6 +5,8 @@ import Card from "../components/ui/Card";
 import Introduction from "@/components/layout/Introduction";
 import ClientsComponent from "@/components/home/ClientsComponent";
 import PortfolioComponent from "@/components/home/PortfolioComponent";
+import ScrollVelocity from "@/components/animations/ScrollVelocity";
+
 export default function Home() {
   const values = [
     {
@@ -62,13 +64,20 @@ export default function Home() {
     },
   ];
   return (
-    <div className="font-sans grid grid-rows items-center justify-items-center gap-16">
+    <div className="flex flex-col items-center">
       <Header />
-      <Introduction/>
+      <div className="m-2 w-full">
+        <ScrollVelocity
+          texts={['Bienvenido a AFH Metalmecánicos']}
+          velocity={100}
+          className="custom-scroll-text"
+        />
+      </div>
+      <Introduction />
       <Card items={values} title={"Nuestros servicios"} />
-      <ClientsComponent/>
+      <ClientsComponent />
       <PortfolioComponent />
-      <CallToAction/>
+      <CallToAction />
       <Footer />
     </div>
   );
