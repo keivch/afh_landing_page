@@ -1,7 +1,7 @@
 import CallToAction from "@/components/layout/callToAction";
 import Footer from "@/components/layout/footer";
-import Header from "../components/layout/Header";
-import Card from "../components/ui/Card";
+import Header from "@/components/layout/Header";
+import Card from "@/components/ui/Card";
 export default function Home() {
   const values = [
     {
@@ -62,6 +62,8 @@ export default function Home() {
     <div className="font-sans grid grid-rows items-center justify-items-center gap-16">
       <Header />
       <Card items={values} title={"Nuestros servicios"} />
+      <CallToAction />
+      <Footer />
     </div>
   );
 }
