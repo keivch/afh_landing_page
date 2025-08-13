@@ -63,9 +63,15 @@ export default function aboutUs() {
   return (
     <div className="font-sans grid grid-rows items-center justify-items-center gap-16">
       <Header />
-      <AboutUsComponent />
-      <Card items={values} title={"Nuestros valores"} />
-      <CallToAction />
+      <div className="m-5" data-aos="zoom-in">
+        <AboutUsComponent />
+      </div>
+      <div className="m-5" data-aos="zoom-in">
+        <Card items={values} title={"Nuestros valores"} />
+      </div>
+      <div className="m-5" data-aos="zoom-in">
+        <CallToAction />
+      </div>
       <Footer />
     </div>
   );
