@@ -3,6 +3,8 @@ import Footer from "@/components/layout/footer";
 import Header from "../components/layout/Header";
 import Card from "../components/ui/Card";
 import Introduction from "@/components/layout/Introduction";
+import ClientsComponent from "@/components/home/ClientsComponent";
+import PortfolioComponent from "@/components/home/PortfolioComponent";
 export default function Home() {
   const values = [
     {
@@ -64,6 +66,8 @@ export default function Home() {
       <Header />
       <Introduction/>
       <Card items={values} title={"Nuestros servicios"} />
+      <ClientsComponent/>
+      <PortfolioComponent />
       <CallToAction/>
       <Footer />
     </div>
