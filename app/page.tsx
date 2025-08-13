@@ -4,6 +4,8 @@ import Introduction from "@/components/layout/Introduction";
 import ClientsComponent from "@/components/home/ClientsComponent";
 import PortfolioComponent from "@/components/home/PortfolioComponent";
 import ScrollVelocity from "@/components/animations/ScrollVelocity";
+import Header from "@/components/layout/Header";
+import Card from "@/components/ui/Card";
 
 
 export default function Home() {
