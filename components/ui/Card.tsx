@@ -22,7 +22,7 @@ export default function Card({ items, title }: CardProps) {
         {items.map((item, index) => (
           <div
             key={index}
-            className="rounded-lg p-4 sm:p-6 flex flex-col shadow border border-gray-100/10 bg-white"
+            className="rounded-lg p-4 sm:p-6 flex flex-col shadow border border-gray-100/10 transition-transform duration-300 ease-in-out hover:scale-110"
           >
             <div className="flex justify-center sm:justify-start">
               {item.icon}

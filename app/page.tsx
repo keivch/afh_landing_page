@@ -1,11 +1,10 @@
 import CallToAction from "@/components/layout/callToAction";
 import Footer from "@/components/layout/footer";
-import Header from "../components/layout/Header";
-import Card from "../components/ui/Card";
 import Introduction from "@/components/layout/Introduction";
 import ClientsComponent from "@/components/home/ClientsComponent";
 import PortfolioComponent from "@/components/home/PortfolioComponent";
 import ScrollVelocity from "@/components/animations/ScrollVelocity";
+
 
 export default function Home() {
   const values = [
