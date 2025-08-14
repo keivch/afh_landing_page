@@ -1,3 +1,4 @@
+'use client';
 import CallToAction from "@/components/layout/callToAction";
 import Footer from "@/components/layout/footer";
 import Introduction from "@/components/layout/Introduction";
@@ -6,6 +7,9 @@ import PortfolioComponent from "@/components/home/PortfolioComponent";
 import ScrollVelocity from "@/components/animations/ScrollVelocity";
 import Header from "@/components/layout/Header";
 import Card from "@/components/ui/Card";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 
 export default function Home() {
@@ -64,22 +68,48 @@ export default function Home() {
         "Desde el concepto hasta la finalización, ofrecemos soluciones de diseño personalizadas para satisfacer sus necesidades específicas en materia de metalurgia.",
     },
   ];
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: true,
+    });
+  }, []);
   return (
     <div className="flex flex-col items-center">
       <Header />
-      <div className="m-2 w-full">
+      <div className="m-2 w-full" data-aos="fade-down">
         <ScrollVelocity
           texts={['Bienvenido a AFH Metalmecánicos']}
           velocity={100}
           className="custom-scroll-text"
         />
       </div>
-      <Introduction />
-      <Card items={values} title={"Nuestros servicios"} />
-      <ClientsComponent />
-      <PortfolioComponent />
-      <CallToAction />
-      <Footer />
+
+      <div className="m-5" data-aos="fade-up">
+        <Introduction />
+      </div>
+
+      <div className="m-5" data-aos="zoom-in">
+        <Card items={values} title={"Nuestros servicios"} />
+      </div>
+
+      <div className="m-5" data-aos="fade-right">
+        <ClientsComponent />
+      </div>
+
+      <div className="m-5" data-aos="fade-left">
+        <PortfolioComponent />
+      </div>
+
+      <div data-aos="flip-up">
+        <CallToAction />
+      </div>
+
+      <div data-aos="fade-up">
+        <Footer />
+      </div>
     </div>
   );
 }
