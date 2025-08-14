@@ -21,7 +21,7 @@ export default function CallToAction() {
                 </ScrollFloat>
             </div>
             <div>
-                <ButtonCTA text={'Cotizar'} link={""}></ButtonCTA>
+                <ButtonCTA text={'Cotizar'} link={"/contact_us"}></ButtonCTA>
             </div>
         </div>
     )

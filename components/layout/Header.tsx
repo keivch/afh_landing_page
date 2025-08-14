@@ -22,7 +22,7 @@ export default function Header() {
   );
 
   return (
-    <header className="flex w-full items-center justify-between px-6 py-4 shadow border-b border-gray-100/10">
+    <header className="flex w-full max-w-full overflow-x-hidden items-center justify-between px-6 py-4 shadow border-b border-gray-100/10">
       <div className="flex items-center gap-3">
         <Image
           src="/logo.png"
@@ -59,9 +59,17 @@ export default function Header() {
           </span>
         </Link>
 
-        <span className="cursor-pointer text-black font-normal hover:text-blue-600 font-public-sans transition-transform duration-100 hover:-translate-y-1">
-          Contáctanos
-        </span>
+        <Link
+          href={{
+            pathname: "/contact_us",
+            query: { name: "contact_us" },
+          }}
+          className="cursor pointer transition-transform duration-100 hover:-translate-y-1"
+        >
+          <span className="text-black font-normal hover:text-blue-600 font-public-sans transition-transform duration-100 hover:-translate-y-1">
+            Contáctanos
+          </span>
+        </Link>
         <ButtonCTA text="Realizar cotización" link="" />
       </nav>
 
@@ -73,7 +81,8 @@ export default function Header() {
       </button>
 
       {isMenuOpen && (
-        <div className="absolute top-16 right-0 bg-white shadow-lg rounded-md p-4 flex flex-col gap-4 w-48 md:hidden">
+        <div className="absolute top-16 right-0 bg-white shadow-lg rounded-md p-4 flex flex-col gap-4 w-48 max-w-[90vw] md:hidden z-50">
+
           <Link
             href={{
               pathname: "/",
@@ -94,10 +103,17 @@ export default function Header() {
               Sobre nosotros
             </span>
           </Link>
-          <span className="cursor-pointer text-black hover:text-blue-600">
-            Contáctanos
-          </span>
-          <ButtonCTA text="Cotización" link="" />
+          <Link
+            href={{
+              pathname: "/contact_us",
+              query: { name: "contact_us" },
+            }}
+          >
+            <span className="text-black font-normal hover:text-blue-600 font-public-sans transition-transform duration-100 hover:-translate-y-1">
+              Contáctanos
+            </span>
+          </Link>
+          <ButtonCTA text="Cotización" link="/contact_us" />
         </div>
       )}
     </header>
