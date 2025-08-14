@@ -80,7 +80,7 @@ export default function aboutUs() {
       <div className="m-5" data-aos="zoom-in">
         <Card items={values} title={"Nuestros valores"} />
       </div>
-      <div className="m-5" data-aos="zoom-in">
+      <div className="m-3 sm:m-0" data-aos="zoom-in">
         <CallToAction />
       </div>
       <Footer />
