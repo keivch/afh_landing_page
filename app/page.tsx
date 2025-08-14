@@ -77,39 +77,40 @@ export default function Home() {
     });
   }, []);
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center min-h-screen">
       <Header />
-      <div className="m-2 w-full" data-aos="fade-down">
-        <ScrollVelocity
-          texts={['Bienvenido a AFH Metalmecánicos']}
-          velocity={100}
-          className="custom-scroll-text"
-        />
-      </div>
+      <main className="w-full">
+        <section className="px-4 py-6 sm:px-6 md:px-8 lg:px-12" data-aos="fade-down">
+          <ScrollVelocity
+            texts={['Bienvenido a AFH Metalmecánicos']}
+            velocity={100}
+            className="custom-scroll-text"
+          />
+        </section>
+        <section className="px-4 py-8 sm:px-6 sm:py-12 md:px-8 md:py-16 lg:px-12 lg:py-20" data-aos="fade-up">
+          <Introduction />
+        </section>
 
-      <div className="m-5" data-aos="fade-up">
-        <Introduction />
-      </div>
+        <section className="px-4 py-8 sm:px-6 sm:py-12 md:px-8 md:py-16 lg:px-12 lg:py-20" data-aos="zoom-in">
+          <Card items={values} title={"Nuestros servicios"} />
+        </section>
 
-      <div className="m-5" data-aos="zoom-in">
-        <Card items={values} title={"Nuestros servicios"} />
-      </div>
 
-      <div className="m-5" data-aos="fade-right">
-        <ClientsComponent />
-      </div>
+        <section className="px-4 py-8 sm:px-6 sm:py-12 md:px-8 md:py-16 lg:px-12 lg:py-20" data-aos="fade-right">
+          <ClientsComponent />
+        </section>
 
-      <div className="m-5" data-aos="fade-left">
-        <PortfolioComponent />
-      </div>
 
-      <div data-aos="flip-up">
-        <CallToAction />
-      </div>
+        <section className="px-4 py-8 sm:px-6 sm:py-12 md:px-8 md:py-16 lg:px-12 lg:py-20" data-aos="fade-left">
+          <PortfolioComponent />
+        </section>
 
-      <div data-aos="fade-up">
-        <Footer />
-      </div>
+        <section className="px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:px-12 lg:py-24" data-aos="flip-up">
+          <CallToAction />
+        </section>
+      </main>
+
+      <Footer data-aos="fade-up" />
     </div>
   );
 }
