@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import ButtonCTA from "../ui/ButtonCTA";
+import emailjs from "@emailjs/browser";
 
 interface Quote {
   nombre: string;
@@ -15,26 +15,48 @@ export default function Form() {
     email: "",
     mensaje: "",
   });
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
+    "idle"
+  );
+  const [errorMsg, setErrorMsg] = useState<string>("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    setFormData((s) => ({ ...s, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Datos enviados:", formData);
+    setStatus("sending");
+    setErrorMsg("");
 
-    // Aquí puedes hacer el fetch a tu API o backend
-    // fetch('/api/endpoint', { method: 'POST', body: JSON.stringify(formData) })
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
 
-    // Limpia el formulario después de enviar
-    setFormData({ nombre: "", email: "", mensaje: "" });
+    const templateParams = {
+      name: formData.nombre,
+      email: formData.email,
+      message: formData.mensaje,
+    };
+
+    try {
+      await emailjs.send(serviceId, templateId, templateParams, { publicKey });
+      setStatus("sent");
+      setFormData({ nombre: "", email: "", mensaje: "" });
+    } catch (err: unknown) {
+      setStatus("error");
+      if (err && typeof err === "object" && "text" in err) {
+        setErrorMsg(
+          (err as { text?: string }).text ||
+            "Ocurrió un error al enviar el correo."
+        );
+      } else {
+        setErrorMsg("Ocurrió un error al enviar el correo.");
+      }
+    }
   };
 
   return (
@@ -74,7 +96,7 @@ export default function Form() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="font-public-sans w-full py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:outline-none"
+              className="font-public-sans w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:outline-none"
             />
           </div>
 
@@ -87,12 +109,27 @@ export default function Form() {
               value={formData.mensaje}
               onChange={handleChange}
               required
-              className="font-public-sans w-full py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:outline-none"
               rows={4}
-            ></textarea>
+              className="font-public-sans w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring focus:ring-blue-200 focus:outline-none"
+            />
           </div>
 
-          <ButtonCTA text="Enviar" link="" />
+          <button
+            type="submit"
+            disabled={status === "sending"}
+            className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold py-2 px-4 rounded-lg transition"
+          >
+            {status === "sending" ? "Enviando..." : "Enviar"}
+          </button>
+
+          {status === "sent" && (
+            <p className="text-green-600 text-sm">
+              ¡Peticion enviada! Pronto nos comunicaremos contigo.
+            </p>
+          )}
+          {status === "error" && (
+            <p className="text-red-600 text-sm">Error: {errorMsg}</p>
+          )}
         </form>
       </section>
     </section>
