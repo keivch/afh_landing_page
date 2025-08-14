@@ -70,7 +70,7 @@ export default function Header() {
             Contáctanos
           </span>
         </Link>
-        <ButtonCTA text="Realizar cotización" link="" />
+        <ButtonCTA text="Realizar cotización" link="/contact_us" />
       </nav>
 
       <button
