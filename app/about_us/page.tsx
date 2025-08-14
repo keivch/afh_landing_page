@@ -1,9 +1,40 @@
+import type { Metadata } from "next";
 import CallToAction from "@/components/layout/callToAction";
 import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/Header";
 import Card from "@/components/ui/Card";
 import AboutUsComponent from "@/components/about_us/companyInfo";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Sobre Nosotros | AFH Metalmecánicos",
+  description:
+    "En AFH Metalmecánicos nos especializamos en procesos metalmecánicos de alta precisión, ofreciendo calidad, innovación y soluciones personalizadas para la industria.",
+  keywords: [
+    "procesos metalmecánicos",
+    "mecanizado de precisión",
+    "soldadura industrial",
+    "fabricación metalmecánica",
+    "AFH Metalmecánicos",
+  ],
+  openGraph: {
+    title: "Sobre Nosotros | AFH Metalmecánicos",
+    description:
+      "Conoce más sobre AFH Metalmecánicos, nuestra historia, valores y compromiso con la industria metalmecánica.",
+    url: "https://tudominio.com/sobre-nosotros",
+    siteName: "AFH Metalmecánicos",
+    images: [
+      {
+        url: "/metal.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Procesos metalmecánicos de alta precisión en AFH Metalmecánicos",
+      },
+    ],
+    locale: "es_CO",
+    type: "website",
+  },
+};
 
 export default function aboutUs() {
   const values = [
@@ -62,28 +93,61 @@ export default function aboutUs() {
     },
   ];
   return (
-    <div className="font-sans grid grid-rows items-center justify-items-center gap-16">
+    <>
+      {/* Datos estructurados para SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "AFH Metalmecánicos",
+            url: "https://tudominio.com",
+            logo: "https://tudominio.com/logo.png",
+            description:
+              "Empresa especializada en procesos metalmecánicos de alta precisión.",
+            sameAs: [
+              "https://www.facebook.com/afhmetalmecanicos",
+              "https://www.linkedin.com/company/afhmetalmecanicos",
+            ],
+          }),
+        }}
+      />
+
       <Header />
-      <div className="m-5" data-aos="zoom-in">
-        <AboutUsComponent />
-      </div>
-      <div className="w-full px-10 md:px-35" data-aos="fade-up">
-        <Image
-          src="/metal.jpg"
-          alt="Metalmecánico"
-          width={1920}
-          height={1080}
-          className="w-full h-auto object-cover rounded-lg"
-          priority
-        />
-      </div>
-      <div className="m-5" data-aos="zoom-in">
-        <Card items={values} title={"Nuestros valores"} />
-      </div>
-      <div className="m-5" data-aos="zoom-in">
-        <CallToAction />
-      </div>
+
+      <main className="font-sans grid grid-rows items-center justify-items-center gap-16">
+        <section className="m-5" data-aos="zoom-in">
+          <h1 className="text-3xl font-bold text-center mb-6">
+            Sobre AFH Metalmecánicos
+          </h1>
+          <AboutUsComponent />
+        </section>
+
+        <section className="w-full px-10 md:px-35" data-aos="fade-up">
+          <Image
+            src="/metal.jpg"
+            alt="Proceso metalmecánico de alta precisión en AFH Metalmecánicos"
+            width={1920}
+            height={1080}
+            className="w-full h-auto object-cover rounded-lg"
+            priority
+          />
+        </section>
+
+        <section className="m-5" data-aos="zoom-in">
+          <h2 className="text-2xl font-semibold text-center mb-4">
+            Nuestros Valores
+          </h2>
+          <Card items={values} title={"Valores de la empresa"} />
+        </section>
+
+        <section className="m-5" data-aos="zoom-in">
+          <CallToAction />
+        </section>
+      </main>
+
       <Footer />
-    </div>
+    </>
   );
 }
