@@ -3,6 +3,7 @@ import Footer from "@/components/layout/footer";
 import Header from "@/components/layout/Header";
 import Card from "@/components/ui/Card";
 import AboutUsComponent from "@/components/about_us/companyInfo";
+import Image from "next/image";
 
 export default function aboutUs() {
   const values = [
@@ -65,6 +66,16 @@ export default function aboutUs() {
       <Header />
       <div className="m-5" data-aos="zoom-in">
         <AboutUsComponent />
+      </div>
+      <div className="w-full px-10 md:px-35" data-aos="fade-up">
+        <Image
+          src="/metal.jpg"
+          alt="Metalmecánico"
+          width={1920}
+          height={1080}
+          className="w-full h-auto object-cover rounded-lg"
+          priority
+        />
       </div>
       <div className="m-5" data-aos="zoom-in">
         <Card items={values} title={"Nuestros valores"} />
