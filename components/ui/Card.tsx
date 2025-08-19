@@ -15,8 +15,8 @@ interface CardProps {
 
 export default function Card({ items, title }: CardProps) {
   return (
-    <section className="flex flex-col gap-4">
-      <h1 className="font-public-sans text-black text-1xl font-bold pl-4 sm:pl-8 md:pl-30 sm:text-base md:text-base">
+    <section className="flex flex-col gap-6 md:gap-8">
+      <h1 className="font-public-sans text-black text-2xl sm:text-3xl md:text-3xl font-bold px-4 sm:px-8 md:px-16 lg:px-24">
         {title}
       </h1>
       {items.length % 3 === 0 ? (
@@ -29,6 +29,7 @@ export default function Card({ items, title }: CardProps) {
               <div className="flex justify-center sm:justify-start">
                 {item.icon}
               </div>
+
 
               <h3 className="mt-3 sm:mt-4 text-base sm:text-base font-semibold text-gray-900 font-public-sans text-center sm:text-left">
                 {item.title}

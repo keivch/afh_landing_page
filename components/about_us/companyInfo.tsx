@@ -3,9 +3,9 @@ export default function AboutUsComponent() {
     <section className="flex flex-col items-center gap-8 px-4 sm:px-10 md:px-30">
       <div className="flex-1 space-y-6">
         <div>
-          <h2 className="font-bold text-2xl font-public-sans text-black mb-2">
+          <h1 className="font-bold text-2xl font-public-sans text-black mb-2">
             Sobre nosotros
-          </h2>
+          </h1>
           <p className="text-sm font-public-sans text-gray-700 leading-relaxed">
             AFH Metalmecánicos es un proveedor líder de servicios de fabricación
             y mecanizado de metales, dedicado a ofrecer soluciones de alta

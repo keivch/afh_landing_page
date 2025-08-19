@@ -8,8 +8,8 @@ export default function CallToAction() {
         console.log('Animation completed!');
     };
     return (
-        <div className="grid grid-cols-1 grid-rows-2 gap-4 justify-items-center">
-            <div >
+        <div className="flex flex-col items-center justify-center gap-6 md:gap-8 py-8 md:py-12 lg:py-16 text-center">
+            <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
                 <ScrollFloat
                     animationDuration={1}
                     ease='back.inOut(2)'
@@ -21,7 +21,7 @@ export default function CallToAction() {
                 </ScrollFloat>
             </div>
             <div>
-                <ButtonCTA text={'Cotizar'} link={"/contact_us"}></ButtonCTA>
+                <ButtonCTA text={'Cotizar'} link={"/contact_us"} />
             </div>
         </div>
     )
