@@ -117,7 +117,6 @@ export default function ContactUsPage() {
       <div data-aos="zoom-in">
         <Map />
       </div>
-      <CallToAction />
       <Footer />
 
       {/* Datos estructurados */}

@@ -167,7 +167,7 @@ export default function aboutUs() {
           <Card items={values} title={""} />
         </section>
 
-        <section className="m-5" data-aos="zoom-in">
+        <section className="m-3" data-aos="zoom-in">
           <CallToAction />
         </section>
       </main>
