@@ -20,11 +20,12 @@ export default function AboutUsComponent() {
             Misión
           </h3>
           <p className="text-sm font-public-sans text-gray-700 leading-relaxed">
-            Nuestra misión es proporcionar servicios de metalurgia excepcionales
-            que superen las expectativas de los clientes. Nos esforzamos por
-            lograrlo mediante la mejora continua, el avance tecnológico y el
-            enfoque en la construcción de relaciones duraderas con nuestros
-            clientes.
+            Somos el aliado estratégico de nuestros clientes entregando montajes
+            integrales y servicios de mantenimiento industrial acordes a sus
+            especificaciones, soportando nuestro actuar en un equipo humano
+            comprometido con la excelencia, la preservación del medio ambiente y
+            el mejoramiento continuo de nuestros sistemas de calidad, seguridad
+            y salud en el trabajo.
           </p>
         </div>
 
@@ -33,11 +34,25 @@ export default function AboutUsComponent() {
             Visión
           </h3>
           <p className="text-sm font-public-sans text-gray-700 leading-relaxed">
-            Nuestra visión es ser el socio preferido para soluciones de
-            fabricación y mecanizado de metales, reconocidos por nuestra
-            calidad, fiabilidad e innovación. Nuestro objetivo es ampliar
-            nuestras capacidades y nuestro alcance, manteniendo al mismo tiempo
-            nuestros valores fundamentales de integridad y excelencia.
+            En el año 2027, (AFH Metalmecánicos SAS) seremos reconocidos a nivel
+            nacional y latinoamericano como una de las mejores empresas
+            prestadoras de servicios de montajes integrales y mantenimientos
+            industriales.
+          </p>
+        </div>
+
+        <div>
+          <h3 className="font-bold text-xl font-public-sans text-black mb-2">
+            Politica de calidad
+          </h3>
+          <p className="text-sm font-public-sans text-gray-700 leading-relaxed">
+            Nos comprometemos con nuestros clientes a convertirnos en su aliado
+            estratégico entregando montajes y servicios de mantenimiento
+            industrial acorde a sus especificaciones. El mejoramiento continuo
+            del sistema de gestión de calidad y el cumplimiento a los requisitos
+            de nuestros grupos de interés son el pilar para ser reconocidos a
+            nivel nacional y latinoamericano como una de las mejores empresas
+            del sector metalmecánico.
           </p>
         </div>
       </div>

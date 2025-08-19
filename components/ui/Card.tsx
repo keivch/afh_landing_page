@@ -1,7 +1,9 @@
 import { ReactNode } from "react";
+import Image from "next/image";
 
 interface CardItem {
   icon: ReactNode; // puede ser cualquier nodo JSX (svg, imagen, texto, etc.)
+  image: string;
   title: string;
   description: string;
 }
@@ -17,29 +19,74 @@ export default function Card({ items, title }: CardProps) {
       <h1 className="font-public-sans text-black text-2xl sm:text-3xl md:text-3xl font-bold px-4 sm:px-8 md:px-16 lg:px-24">
         {title}
       </h1>
-
-      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 px-4 sm:px-8 md:px-16 lg:px-24">
-        {items.map((item, index) => (
-          <div
-            key={index}
-            className="bg-white rounded-lg p-4 sm:p-6 md:p-8 flex flex-col shadow-sm hover:shadow-lg border border-gray-100 transition-all duration-300 ease-in-out hover:scale-105 hover:border-gray-200"
-          >
-            <div className="flex justify-center sm:justify-center md:justify-start mb-4">
-              <div className="text-blue-600 text-3xl sm:text-4xl">
+      {items.length % 3 === 0 ? (
+        <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-6 px-4 sm:px-8 md:px-30">
+          {items.map((item, index) => (
+            <div
+              key={index}
+              className="rounded-lg p-4 sm:p-6 flex flex-col shadow border border-gray-100/10 transition-transform duration-300 ease-in-out hover:scale-110"
+            >
+              <div className="flex justify-center sm:justify-start">
                 {item.icon}
               </div>
+
+
+              <h3 className="mt-3 sm:mt-4 text-base sm:text-base font-semibold text-gray-900 font-public-sans text-center sm:text-left">
+                {item.title}
+              </h3>
+
+              <p className="mt-2 text-gray-600 text-sm sm:text-base font-public-sans text-center sm:text-left leading-relaxed">
+                {item.description}
+              </p>
+              {item.image !== "" && (
+                <section className="w-full px-10" data-aos="fade-up">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    width={1920}
+                    height={1080}
+                    className="w-full h-auto object-cover rounded-lg"
+                    priority
+                  />
+                </section>
+              )}
             </div>
+          ))}
+        </section>
+      ) : (
+        <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 sm:gap-6 px-4 sm:px-8 md:px-30">
+          {items.map((item, index) => (
+            <div
+              key={index}
+              className="rounded-lg p-4 sm:p-6 flex flex-col shadow border border-gray-100/10 transition-transform duration-300 ease-in-out hover:scale-110"
+            >
+              <div className="flex justify-center sm:justify-start">
+                {item.icon}
+              </div>
 
-            <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-gray-900 font-public-sans text-center md:text-left mb-3">
-              {item.title}
-            </h3>
+              <h3 className="mt-3 sm:mt-4 text-base sm:text-base font-semibold text-gray-900 font-public-sans text-center sm:text-left">
+                {item.title}
+              </h3>
 
-            <p className="text-gray-600 text-sm sm:text-base md:text-lg font-public-sans text-center md:text-left leading-relaxed flex-grow">
-              {item.description}
-            </p>
-          </div>
-        ))}
-      </section>
+              <p className="mt-2 text-gray-600 text-sm sm:text-base font-public-sans text-center sm:text-left leading-relaxed">
+                {item.description}
+              </p>
+              {item.image !== "" && (
+                <section className="w-full px-10" data-aos="fade-up">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    width={1920}
+                    height={1080}
+                    className="w-full h-auto object-cover rounded-lg"
+                    priority
+                  />
+                </section>
+              )}
+            </div>
+          ))}
+        </section>
+      )}
     </section>
   );
 }
