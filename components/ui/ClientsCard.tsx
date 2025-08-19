@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+
 interface PropsClientCard {
     title: string;
     description: string;
@@ -11,10 +12,11 @@ export default function ClientsCard({ title, description, image }: PropsClientCa
         <div className="group relative bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 border border-gray-100 hover:border-gray-200 overflow-hidden">
             
             <div className="relative w-full h-32 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4">
-                <img
+                <Image
                     src={image}
                     alt={title}
-                    className="max-w-full max-h-full object-contain transition-all duration-300 ease-in-out group-hover:scale-110"
+                    className="object-contain transition-all duration-300 ease-in-out group-hover:scale-110"
+                    fill={true}
                 />
                 
                 <div className="absolute inset-0 bg-blue-600/0 group-hover:bg-blue-600/5 transition-all duration-300"></div>
