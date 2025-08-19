@@ -14,7 +14,7 @@ interface CardProps {
 export default function Card({ items, title }: CardProps) {
   return (
     <section className="flex flex-col gap-6 md:gap-8">
-      <h1 className="font-public-sans text-black text-2xl sm:text-3xl md:text-4xl font-bold px-4 sm:px-8 md:px-16 lg:px-24">
+      <h1 className="font-public-sans text-black text-2xl sm:text-3xl md:text-3xl font-bold px-4 sm:px-8 md:px-16 lg:px-24">
         {title}
       </h1>
 
