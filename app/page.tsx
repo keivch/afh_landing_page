@@ -7,9 +7,6 @@ import PortfolioComponent from "@/components/home/PortfolioComponent";
 import ScrollVelocity from "@/components/animations/ScrollVelocity";
 import Header from "@/components/layout/Header";
 import Card from "@/components/ui/Card";
-import { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import Head from "next/head";
 
 
@@ -70,13 +67,6 @@ export default function Home() {
     },
   ];
 
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      easing: "ease-in-out",
-      once: true,
-    });
-  }, []);
   return (
     <div className="flex flex-col items-center min-h-screen">
       <Head>
