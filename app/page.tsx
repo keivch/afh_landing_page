@@ -10,6 +10,7 @@ import Card from "@/components/ui/Card";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Head from "next/head";
 
 
 export default function Home() {
@@ -78,6 +79,33 @@ export default function Home() {
   }, []);
   return (
     <div className="flex flex-col items-center min-h-screen">
+      <Head>
+        {/* SEO básico */}
+        <title>AFH Metalmecánicos - Soluciones en Metales de Precisión</title>
+        <meta
+          name="description"
+          content="AFH Metalmecánicos ofrece soluciones industriales en metales de precisión para proyectos de ingeniería y fabricación."
+        />
+        <meta name="keywords" content="AFH Metalmecánicos, metalmecánica, metales de precisión, ingeniería, fabricación" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://www.midominio.com/" />
+
+        {/* Favicon */}
+        <link rel="icon" href="/logo.png" />
+
+        {/* Open Graph / Redes sociales */}
+        <meta property="og:title" content="AFH Metalmecánicos - Soluciones en Metales de Precisión" />
+        <meta property="og:description" content="Expertos en metales de precisión para la industria. Conoce nuestros servicios." />
+        <meta property="og:image" content="https://www.midominio.com/logo.png" />
+        <meta property="og:url" content="https://www.midominio.com/" />
+        <meta property="og:type" content="website" />
+
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="AFH Metalmecánicos - Soluciones en Metales de Precisión" />
+        <meta name="twitter:description" content="Expertos en metales de precisión para la industria. Conoce nuestros servicios." />
+        <meta name="twitter:image" content="https://www.midominio.com/logo.png" />
+      </Head>
       <Header />
       <main className="w-full">
         <section className="px-4 py-6 sm:px-6 md:px-8 lg:px-12" data-aos="fade-down">

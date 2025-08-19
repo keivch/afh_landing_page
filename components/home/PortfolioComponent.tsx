@@ -6,7 +6,7 @@ export default function PortfolioComponent() {
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
             <div className="col-span-full font-public-sans text-black font-bold text-1xl md:text-1xl mb-2">
-                Nuestro Portafolio
+                <h4>Nuestro Portafolio</h4>
             </div>
 
             {/* Imágenes */}
