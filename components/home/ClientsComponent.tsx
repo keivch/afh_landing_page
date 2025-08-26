@@ -17,7 +17,7 @@ export default function ClientsComponent() {
                     <h2 className="font-public-sans text-gray-900 font-bold text-2xl md:text-3xl mb-4">
                         Nuestros Clientes
                     </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto rounded-full"></div>
+                    <div className="w-24 h-1 bg-gradient-to-r from-[#98e73c] to-[#98e73c] mx-auto rounded-full"></div>
                     <p className="text-gray-600 mt-4 text-sm md:text-base max-w-2xl mx-auto">
                         Empresas que confían en nuestros servicios y han experimentado resultados excepcionales
                     </p>

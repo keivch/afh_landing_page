@@ -11,7 +11,7 @@ export default function Header() {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       fill="currentColor"
-      className="size-6"
+      className="size-6 text-[#98e73c]"
     >
       <path
         fillRule="evenodd"
@@ -22,7 +22,7 @@ export default function Header() {
   );
 
   return (
-    <header className="flex w-full max-w-full overflow-x-hidden items-center justify-between px-6 py-4 shadow border-b border-gray-100/10">
+    <header className="flex w-full max-w-full bg-[#0b2239] overflow-x-hidden items-center justify-between px-6 py-4 shadow border-b border-gray-100/10">
       <div className="flex items-center gap-3">
         <Image
           src="/logo.png"
@@ -30,7 +30,7 @@ export default function Header() {
           height={50}
           alt="Logo de la empresa"
         />
-        <span className="font-bold text-lg text-black font-public-sans">
+        <span className="font-bold text-lg text-white font-public-sans">
           AFH Metalmecánicos
         </span>
       </div>
@@ -43,7 +43,7 @@ export default function Header() {
           }}
           className="cursor pointer transition-transform duration-100 hover:-translate-y-1"
         >
-          <span className="cursor-pointer text-black font-normal hover:text-blue-600 font-public-sans transition-transform duration-100 hover:-translate-y-1">
+          <span className="cursor-pointer text-white font-normal hover:text-[#98e73c] font-public-sans transition-transform duration-100 hover:-translate-y-1">
             Inicio
           </span>
         </Link>
@@ -54,7 +54,7 @@ export default function Header() {
           }}
           className="cursor pointer transition-transform duration-100 hover:-translate-y-1"
         >
-          <span className="cursor-pointer text-black font-normal hover:text-blue-600 font-public-sans transition-transform duration-100 hover:-translate-y-1">
+          <span className="cursor-pointer text-white font-normal hover:text-[#98e73c] font-public-sans transition-transform duration-100 hover:-translate-y-1">
             Sobre nosotros
           </span>
         </Link>
@@ -66,7 +66,7 @@ export default function Header() {
           }}
           className="cursor pointer transition-transform duration-100 hover:-translate-y-1"
         >
-          <span className="text-black font-normal hover:text-blue-600 font-public-sans transition-transform duration-100 hover:-translate-y-1">
+          <span className="text-white font-normal hover:text-[#98e73c] font-public-sans transition-transform duration-100 hover:-translate-y-1">
             Contáctanos
           </span>
         </Link>
