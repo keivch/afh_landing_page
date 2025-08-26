@@ -5,7 +5,7 @@ import Header from "@/components/layout/Header";
 import Card from "@/components/ui/Card";
 import AboutUsComponent from "@/components/about_us/companyInfo";
 import Image from "next/image";
-import Head from "next/head";
+
 
 export const metadata: Metadata = {
   title: "Sobre Nosotros | AFH Metalmecánicos",

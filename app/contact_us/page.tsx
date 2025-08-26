@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/footer";
-import CallToAction from "@/components/layout/callToAction";
 import ContactForm from "@/components/contact_us/form";
 import Contacts from "@/components/contact_us/contacts";
 import Map from "@/components/ui/map";
-import Form from "@/components/contact_us/form";
 import Head from "next/head";
 
 
