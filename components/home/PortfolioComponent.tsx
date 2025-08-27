@@ -17,7 +17,7 @@ export default function PortfolioComponent() {
                     <h3 className="font-public-sans text-gray-900 font-bold text-2xl md:text-3xl mb-4">
                         Nuestro Portafolio
                     </h3>
-                    <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto rounded-full"></div>
+                    <div className="w-24 h-1 bg-gradient-to-r from-[#98e73c] to-[#98e73c] mx-auto rounded-full"></div>
                     <p className="text-gray-600 mt-4 text-sm md:text-base max-w-2xl mx-auto">
                         Prestación de servicios en montajes
                         metalmecánico y mantenimiento industrial.
