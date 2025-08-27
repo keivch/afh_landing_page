@@ -13,6 +13,7 @@
     "@emailjs/browser": "^4.4.1",
     "aos": "^2.3.4",
     "gsap": "^3.13.0",
+    "lucide-react": "^0.542.0",
     "motion": "^12.23.12",
     "next": "15.4.6",
     "next-sitemap": "^4.2.3",

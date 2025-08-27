@@ -117,7 +117,7 @@ export default function Form() {
           <button
             type="submit"
             disabled={status === "sending"}
-            className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold py-2 px-4 rounded-lg transition"
+            className="w-full bg-[#98e73c] hover:bg-[#81d323] hover:scale-101 disabled:opacity-60 disabled:cursor-not-allowed text-black font-semibold font-public-sans py-2 px-4 rounded-lg transition"
           >
             {status === "sending" ? "Enviando..." : "Enviar"}
           </button>

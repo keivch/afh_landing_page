@@ -7,7 +7,7 @@ export default function Introduction() {
         console.log('All letters have animated!');
     };
     return (
-        <div className="relative bg-[url('/metal.jpg')] bg-cover bg-center bg-no-repeat w-full min-h-[400px] md:min-h-[600px] lg:min-h-[700px] flex items-end rounded-lg overflow-hidden">
+        <div className="relative bg-[url('/afh1.jpeg')] bg-cover bg-center bg-no-repeat w-full min-h-[400px] md:min-h-[600px] lg:min-h-[700px] flex items-end rounded-lg overflow-hidden">
             {/* Overlay para mejorar legibilidad del texto */}
             <div className="absolute inset-0 bg-black/40 rounded-lg"></div>
 
