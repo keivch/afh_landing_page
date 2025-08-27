@@ -25,9 +25,9 @@ export default function Header() {
     <header className="flex w-full max-w-full bg-[#0b2239] overflow-x-hidden items-center justify-between px-6 py-4 shadow border-b border-gray-100/10">
       <div className="flex items-center gap-3">
         <Image
-          src="/logo.png"
-          width={50}
-          height={50}
+          src="/logo4.png"
+          width={60}
+          height={60}
           alt="Logo de la empresa"
         />
         <span className="font-bold text-lg text-white font-public-sans">

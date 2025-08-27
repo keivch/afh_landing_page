@@ -5,6 +5,7 @@ import Header from "@/components/layout/Header";
 import Card from "@/components/ui/Card";
 import AboutUsComponent from "@/components/about_us/companyInfo";
 import Image from "next/image";
+import ImageCarousel from "@/components/layout/carrrousel";
 
 
 export const metadata: Metadata = {
@@ -150,14 +151,10 @@ export default function aboutUs() {
         </section>
 
         <section className="w-full px-10 md:px-35" data-aos="fade-up">
-          <Image
-            src="/metal.jpg"
-            alt="Proceso metalmecánico de alta precisión en AFH Metalmecánicos"
-            width={1920}
-            height={1080}
-            className="w-full h-auto object-cover rounded-lg"
-            priority
-          />
+          <h2 className="text-2xl font-semibold text-center mb-4">
+            Nuestra Galería
+          </h2>
+          <ImageCarousel/>
         </section>
 
         <section className="m-5" data-aos="zoom-in">
