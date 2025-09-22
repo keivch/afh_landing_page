@@ -9,32 +9,50 @@ import ImageCarousel from "@/components/layout/carrrousel";
 
 
 export const metadata: Metadata = {
-  title: "Sobre Nosotros | AFH Metalmecánicos",
+  title: "Sobre Nosotros | AFH Metalmecánicos - Especialistas en Valle del Cauca, Colombia",
   description:
-    "En AFH Metalmecánicos nos especializamos en procesos metalmecánicos de alta precisión, ofreciendo calidad, innovación y soluciones personalizadas para la industria.",
+    "Conoce AFH Metalmecánicos en Valle del Cauca, Colombia. Especialistas en procesos metalmecánicos de alta precisión, fabricación industrial, soldadura y mantenimiento. Servicios en Cali, Palmira, Yumbo, Jamundí, Candelaria y toda la región.",
   keywords: [
-    "procesos metalmecánicos",
-    "mecanizado de precisión",
-    "soldadura industrial",
-    "fabricación metalmecánica",
+    "procesos metalmecánicos Valle del Cauca",
+    "mecanizado de precisión Cali",
+    "soldadura industrial Palmira",
+    "fabricación metalmecánica Yumbo",
     "AFH Metalmecánicos",
+    "empresa metalmecánica Valle del Cauca",
+    "servicios industriales Cali",
+    "mantenimiento industrial Jamundí",
+    "diseño metalmecánico Candelaria",
+    "fabricación metal Cali",
+    "mecanizado Palmira",
+    "soldadura Yumbo",
+    "mantenimiento Jamundí",
+    "reparación Candelaria"
   ],
   openGraph: {
-    title: "Sobre Nosotros | AFH Metalmecánicos",
+    title: "Sobre Nosotros | AFH Metalmecánicos - Valle del Cauca, Colombia",
     description:
-      "Conoce más sobre AFH Metalmecánicos, nuestra historia, valores y compromiso con la industria metalmecánica.",
-    url: "https://tudominio.com/sobre-nosotros",
+      "Conoce la historia, valores y compromiso de AFH Metalmecánicos con la industria metalmecánica en Valle del Cauca, Colombia. Servicios en Cali, Palmira, Yumbo, Jamundí, Candelaria y toda la región.",
+    url: "https://www.afhmetalmecanicos.com/about_us",
     siteName: "AFH Metalmecánicos",
     images: [
       {
-        url: "/metal.jpg",
+        url: "https://www.afhmetalmecanicos.com/metal.jpg",
         width: 1200,
         height: 630,
-        alt: "Procesos metalmecánicos de alta precisión en AFH Metalmecánicos",
+        alt: "Procesos metalmecánicos de alta precisión en AFH Metalmecánicos Valle del Cauca",
       },
     ],
     locale: "es_CO",
     type: "website",
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Sobre Nosotros | AFH Metalmecánicos",
+    description: "Conoce AFH Metalmecánicos, especialistas en procesos metalmecánicos en Valle del Cauca, Colombia.",
+    images: ["https://www.afhmetalmecanicos.com/metal.jpg"],
+  },
+  alternates: {
+    canonical: "https://www.afhmetalmecanicos.com/about_us",
   },
 };
 
@@ -122,12 +140,23 @@ export default function aboutUs() {
             "@context": "https://schema.org",
             "@type": "Organization",
             name: "AFH Metalmecánicos",
-            url: "https://tudominio.com",
-            logo: "https://tudominio.com/logo.png",
+            alternateName: "AFH Metal Mecánicos",
+            url: "https://www.afhmetalmecanicos.com",
+            logo: "https://www.afhmetalmecanicos.com/logo.png",
             description:
-              "Empresa especializada en procesos metalmecánicos de alta precisión.",
+              "AFH Metalmecánicos es una empresa especializada en procesos metalmecánicos de alta precisión en Valle del Cauca, Colombia. Ofrecemos fabricación, mecanizado, soldadura y mantenimiento industrial en Cali, Palmira, Yumbo, Jamundí, Candelaria y toda la región.",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Palmira",
+              addressRegion: "Valle del Cauca",
+              addressCountry: "CO"
+            },
+            foundingDate: "2020",
+            numberOfEmployees: "10-50",
+            industry: "Manufacturing",
             sameAs: [
               "https://www.facebook.com/afhmetalmecanicos",
+              "https://www.instagram.com/afhmetalmecanicos",
               "https://www.linkedin.com/company/afhmetalmecanicos",
             ],
           }),

@@ -6,7 +6,7 @@ export default function PortfolioComponent() {
         { title: "Cabezal", description: "Se realizan los mejores cabezales para dar soluciones a las empresas azucareras", image: "/industrial.jpg" },
         { title: "Estructura", description: "Construcción y montaje de estructura para techos en la industria", image: "/estructura.jpg" },
         { title: "Rejillas metálicas", description: "Construcción y montaje de rejillas metálicas para la industria", image: "/rejillas.jpg" },
-        { title: "Pisos Metalmecanicos", description: "onstrucción y montaje de rejillas metálicas para la industria", image: "/pisos.jpg" },
+        { title: "Pisos Metalmecánicos", description: "Construcción y montaje de pisos metalmecánicos para la industria", image: "/pisos.jpg" },
         { title: "Sin Fin", description: "Construcción y montaje de sin fin, adecuados a la necesidad de la industria para la industria", image: "/sinfin.jpg" },
     ];
     return (

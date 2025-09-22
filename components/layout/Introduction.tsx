@@ -28,9 +28,23 @@ export default function Introduction() {
                     onLetterAnimationComplete={handleAnimationComplete}
                 />
                 <div className="mt-4 md:mt-6 text-sm sm:text-base md:text-lg lg:text-xl max-w-3xl">
-                    <p className="leading-relaxed">
+                    <p className="leading-relaxed mb-6">
                         En AFH Metalmecánicos transformamos ideas en soluciones metálicas de alta precisión. En cada proyecto combinamos tecnología avanzada, materiales de primera y un equipo altamente capacitado para garantizar resultados duraderos y eficientes.
                     </p>
+                    <div className="flex flex-col sm:flex-row gap-4">
+                        <a 
+                            href="/contact_us" 
+                            className="inline-flex items-center justify-center px-6 py-3 bg-[#98e73c] text-black font-semibold rounded-lg hover:bg-[#81d323] transition-colors duration-200 shadow-lg hover:shadow-xl"
+                        >
+                            Solicitar Cotización
+                        </a>
+                        <a 
+                            href="/about_us" 
+                            className="inline-flex items-center justify-center px-6 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-[#0b2239] transition-all duration-200"
+                        >
+                            Conocer Más
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
