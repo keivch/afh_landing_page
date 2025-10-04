@@ -32,11 +32,11 @@ export const metadata: Metadata = {
     title: "Sobre Nosotros | AFH Metalmecánicos - Valle del Cauca, Colombia",
     description:
       "Conoce la historia, valores y compromiso de AFH Metalmecánicos con la industria metalmecánica en Valle del Cauca, Colombia. Servicios en Cali, Palmira, Yumbo, Jamundí, Candelaria y toda la región.",
-    url: "https://www.afhmetalmecanicos.com/about_us",
+    url: "https://www.afhmetalmecanico.com/about_us",
     siteName: "AFH Metalmecánicos",
     images: [
       {
-        url: "https://www.afhmetalmecanicos.com/metal.jpg",
+        url: "https://www.afhmetalmecanico.com/metal.jpg",
         width: 1200,
         height: 630,
         alt: "Procesos metalmecánicos de alta precisión en AFH Metalmecánicos Valle del Cauca",
@@ -49,10 +49,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: "Sobre Nosotros | AFH Metalmecánicos",
     description: "Conoce AFH Metalmecánicos, especialistas en procesos metalmecánicos en Valle del Cauca, Colombia.",
-    images: ["https://www.afhmetalmecanicos.com/metal.jpg"],
+    images: ["https://www.afhmetalmecanico.com/metal.jpg"],
   },
   alternates: {
-    canonical: "https://www.afhmetalmecanicos.com/about_us",
+    canonical: "https://www.afhmetalmecanico.com/about_us",
   },
 };
 
@@ -141,8 +141,8 @@ export default function aboutUs() {
             "@type": "Organization",
             name: "AFH Metalmecánicos",
             alternateName: "AFH Metal Mecánicos",
-            url: "https://www.afhmetalmecanicos.com",
-            logo: "https://www.afhmetalmecanicos.com/logo.png",
+            url: "https://www.afhmetalmecanico.com",
+            logo: "https://www.afhmetalmecanico.com/logo.png",
             description:
               "AFH Metalmecánicos es una empresa especializada en procesos metalmecánicos de alta precisión en Valle del Cauca, Colombia. Ofrecemos fabricación, mecanizado, soldadura y mantenimiento industrial en Cali, Palmira, Yumbo, Jamundí, Candelaria y toda la región.",
             address: {

@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: 'https://www.afhmetalmecanicos.com',
+  siteUrl: 'https://afhmetalmecanico.com',
   generateRobotsTxt: true,
   sitemapSize: 5000,
   changefreq: 'weekly',
