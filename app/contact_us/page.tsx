@@ -29,12 +29,12 @@ export const metadata: Metadata = {
     title: "Contáctanos | AFH Metalmecánicos - Valle del Cauca, Colombia",
     description:
       "Comunícate con AFH Metalmecánicos para soluciones personalizadas en procesos y fabricación metalmecánica en Valle del Cauca, Colombia. Servicios en Cali, Palmira, Yumbo, Jamundí, Candelaria y toda la región.",
-    url: "https://www.afhmetalmecanicos.com/contact_us",
+    url: "https://www.afhmetalmecanico.com/contact_us",
     siteName: "AFH Metalmecánicos",
     type: "website",
     images: [
       {
-        url: "https://www.afhmetalmecanicos.com/logo.png",
+        url: "https://www.afhmetalmecanico.com/logo.png",
         width: 1200,
         height: 630,
         alt: "Contacto AFH Metalmecánicos Valle del Cauca",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     images: ["https://www.afhmetalmecanicos.com/logo.png"],
   },
   alternates: {
-    canonical: "https://www.afhmetalmecanicos.com/contact_us",
+    canonical: "https://www.afhmetalmecanico.com/contact_us",
   },
 };
 
