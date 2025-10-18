@@ -6,7 +6,7 @@ export default function PortfolioComponent() {
         { title: "Cabezal", description: "Se realizan los mejores cabezales para dar soluciones a las empresas azucareras", image: "/industrial.jpg" },
         { title: "Estructura", description: "Construcción y montaje de estructura para techos en la industria", image: "/estructura.jpg" },
         { title: "Rejillas metálicas", description: "Construcción y montaje de rejillas metálicas para la industria", image: "/rejillas.jpg" },
-        { title: "Pisos Metalmecanicos", description: "onstrucción y montaje de rejillas metálicas para la industria", image: "/pisos.jpg" },
+        { title: "Pisos Metalmecánicos", description: "Construcción y montaje de pisos metalmecánicos para la industria", image: "/pisos.jpg" },
         { title: "Sin Fin", description: "Construcción y montaje de sin fin, adecuados a la necesidad de la industria para la industria", image: "/sinfin.jpg" },
     ];
     return (
@@ -17,7 +17,7 @@ export default function PortfolioComponent() {
                     <h3 className="font-public-sans text-gray-900 font-bold text-2xl md:text-3xl mb-4">
                         Nuestro Portafolio
                     </h3>
-                    <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-600 mx-auto rounded-full"></div>
+                    <div className="w-24 h-1 bg-gradient-to-r from-[#98e73c] to-[#98e73c] mx-auto rounded-full"></div>
                     <p className="text-gray-600 mt-4 text-sm md:text-base max-w-2xl mx-auto">
                         Prestación de servicios en montajes
                         metalmecánico y mantenimiento industrial.

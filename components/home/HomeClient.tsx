@@ -123,10 +123,9 @@ export default function HomeClient() {
           <CallToAction />
         </div>
 
-        <div data-aos="fade-up">
-          <Footer />
-        </div>
+
       </div>
+      <Footer />
     </>
   );
 }
