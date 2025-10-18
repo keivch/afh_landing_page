@@ -44,6 +44,7 @@ export default function Footer() {
                         <ul className="space-y-2">
                             <li><Link href="/" className="text-gray-300 hover:text-white transition-colors duration-200">Inicio</Link></li>
                             <li><Link href="/about_us" className="text-gray-300 hover:text-white transition-colors duration-200">Sobre nosotros</Link></li>
+                            <li><Link href="/galeria" className="text-gray-300 hover:text-white transition-colors duration-200">nuestra galería</Link></li>
                             <li><Link href="/contact_us" className="text-gray-300 hover:text-white transition-colors duration-200">Contacto</Link></li>
                         </ul>
                     </div>
@@ -53,7 +54,7 @@ export default function Footer() {
                         <h3 className="font-bold text-lg mb-4 text-[#98e73c]">Contacto</h3>
                         <div className="space-y-2 text-sm text-gray-300">
                             <p>📞 +57 311 616 7972</p>
-                            <p>✉️ asisasistenteadm@afhmetalmecanico.com</p>
+                            <p>✉️ asistenteadm@afhmetalmecanico.com</p>
                             <p>📍 Palmira, Valle del Cauca</p>
                             <p>Colombia</p>
                         </div>
