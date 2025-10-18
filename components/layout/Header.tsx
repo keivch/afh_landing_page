@@ -118,6 +118,17 @@ export default function Header() {
             </span>
           </Link>
           <Link
+          href={{
+            pathname: "/galeria",
+            query: { name: "galeria" },
+          }}
+          className="cursor pointer transition-transform duration-100 hover:-translate-y-1"
+        >
+          <span className="cursor-pointer text-white font-normal hover:text-[#98e73c] font-public-sans transition-transform duration-100 hover:-translate-y-1">
+            Nuestra Galería
+          </span>
+        </Link>
+          <Link
             href={{
               pathname: "/contact_us",
               query: { name: "contact_us" },
