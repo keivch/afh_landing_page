@@ -30,7 +30,7 @@ export default function Contacts() {
           Correo electrónico
         </span>
         <span className="font-public-sans text-black text-sm">
-          asisasistenteadm@afhmetalmecanico.com
+          asistenteadm@afhmetalmecanico.com
         </span>
       </section>
     </section>
