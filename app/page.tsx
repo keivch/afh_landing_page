@@ -45,6 +45,9 @@ export async function generateMetadata(): Promise<Metadata> {
     alternates: {
       canonical: baseUrl, 
     },
+    other: {
+      "facebook-domain-verification": "c2yk3qxicomcdpczlwenbmo9qci4nx",
+    },
   };
 }
 
