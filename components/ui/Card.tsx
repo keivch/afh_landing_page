@@ -16,9 +16,11 @@ interface CardProps {
 export default function Card({ items, title }: CardProps) {
   return (
     <section className="flex flex-col gap-6 md:gap-8">
-      <h1 className="font-public-sans text-black text-2xl sm:text-3xl md:text-3xl font-bold px-4 sm:px-8 md:px-16 lg:px-24">
-        {title}
-      </h1>
+      {title ? (
+        <h2 className="font-public-sans text-black text-2xl sm:text-3xl md:text-3xl font-bold px-4 sm:px-8 md:px-16 lg:px-24">
+          {title}
+        </h2>
+      ) : null}
       {items.length % 3 === 0 ? (
         <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-6 px-4 sm:px-8 md:px-30">
           {items.map((item, index) => (

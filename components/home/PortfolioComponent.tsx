@@ -1,49 +1,94 @@
-import ClientsCard from "../ui/ClientsCard"
+import Image from "next/image";
+
+const projects = [
+  {
+    title: "Chimeneas industriales",
+    description: "Construcción y montaje de chimeneas para planta industrial.",
+    image: "/chimenea.jpg",
+    alt: "Chimenea industrial fabricada y montada por AFH Metalmecánicos",
+  },
+  {
+    title: "Cabezales para ingenios",
+    description: "Cabezales a la medida para la operación de ingenios azucareros.",
+    image: "/industrial.jpg",
+    alt: "Cabezal metálico fabricado para un ingenio azucarero",
+  },
+  {
+    title: "Estructuras para techos",
+    description: "Estructura metálica fabricada en taller y montada en obra.",
+    image: "/estructura.jpg",
+    alt: "Estructura metálica de techo instalada en una planta industrial",
+  },
+  {
+    title: "Rejillas metálicas",
+    description: "Rejillas para pisos, pasarelas y zonas de proceso.",
+    image: "/rejillas.jpg",
+    alt: "Rejillas metálicas industriales fabricadas por AFH Metalmecánicos",
+  },
+  {
+    title: "Pisos metalmecánicos",
+    description: "Pisos y plataformas metálicas para circulación en planta.",
+    image: "/pisos.jpg",
+    alt: "Piso metalmecánico instalado en una instalación industrial",
+  },
+  {
+    title: "Sinfines",
+    description: "Sinfines fabricados según el material y el caudal de cada proceso.",
+    image: "/sinfin.jpg",
+    alt: "Sinfín metálico fabricado para transporte de material en planta",
+  },
+];
 
 export default function PortfolioComponent() {
-    const clients = [
-        { title: "Chimenea", description: "Construccion y montaje  de chimeneas en el sector industrial", image: "/chimenea.jpg" },
-        { title: "Cabezal", description: "Se realizan los mejores cabezales para dar soluciones a las empresas azucareras", image: "/industrial.jpg" },
-        { title: "Estructura", description: "Construcción y montaje de estructura para techos en la industria", image: "/estructura.jpg" },
-        { title: "Rejillas metálicas", description: "Construcción y montaje de rejillas metálicas para la industria", image: "/rejillas.jpg" },
-        { title: "Pisos Metalmecánicos", description: "Construcción y montaje de pisos metalmecánicos para la industria", image: "/pisos.jpg" },
-        { title: "Sin Fin", description: "Construcción y montaje de sin fin, adecuados a la necesidad de la industria para la industria", image: "/sinfin.jpg" },
-    ];
-    return (
-        <section className="w-full py-12 px-4 bg-gradient-to-b from-gray-50/50 to-white">
-            <div className="max-w-7xl mx-auto">
-            
-                <div className="text-center mb-12">
-                    <h3 className="font-public-sans text-gray-900 font-bold text-2xl md:text-3xl mb-4">
-                        Nuestro Portafolio
-                    </h3>
-                    <div className="w-24 h-1 bg-gradient-to-r from-[#98e73c] to-[#98e73c] mx-auto rounded-full"></div>
-                    <p className="text-gray-600 mt-4 text-sm md:text-base max-w-2xl mx-auto">
-                        Prestación de servicios en montajes
-                        metalmecánico y mantenimiento industrial.
-                    </p>
-                </div>
+  return (
+    <section id="portafolio" className="w-full bg-white py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="max-w-2xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#5f8f18]">
+            Portafolio
+          </p>
+          <h2 className="mt-3 font-public-sans text-3xl font-bold text-[#0b2239] md:text-4xl">
+            Trabajos de montaje y fabricación
+          </h2>
+          <p className="mt-4 text-gray-600">
+            Una muestra de estructuras, equipos y elementos que salen del taller
+            hacia la planta.
+          </p>
+        </div>
 
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {projects.map((project) => (
+            <article
+              key={project.title}
+              className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm"
+            >
+              <div className="relative h-56">
+                <Image
+                  src={project.image}
+                  alt={project.alt}
+                  fill
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="p-5">
+                <h3 className="font-public-sans text-lg font-semibold text-[#0b2239]">
+                  {project.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                  {project.description}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
-                    {clients.map((client, index) => (
-                        <ClientsCard
-                            key={index}
-                            title={client.title}
-                            description={client.description}
-                            image={client.image}
-                        />
-                    ))}
-                </div>
-
-                <div className="mt-12 text-center">
-                    <div className="inline-flex items-center space-x-2 text-gray-500 text-sm">
-                        <div className="w-8 h-0.5 bg-gray-300 rounded"></div>
-                        <span>Muchos servicios mas</span>
-                        <div className="w-8 h-0.5 bg-gray-300 rounded"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
+        <div className="mt-8">
+          <a href="/galeria" className="font-semibold text-[#0b2239] underline-offset-4 hover:underline">
+            Ver la galería completa
+          </a>
+        </div>
+      </div>
+    </section>
+  );
 }

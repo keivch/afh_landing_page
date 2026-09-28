@@ -1,11 +1,11 @@
 {
   "name": "AFH Metalmecánicos",
   "short_name": "AFH Metal",
-  "description": "AFH Metalmecánicos - Especialistas en procesos metalmecánicos en Palmira, Colombia",
+  "description": "Montajes y mantenimiento industrial en Palmira, Valle del Cauca.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "background_color": "#0b2239",
+  "theme_color": "#0b2239",
   "icons": [
     {
       "src": "/icon-192x192.png",

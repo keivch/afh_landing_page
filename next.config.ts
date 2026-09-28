@@ -35,12 +35,44 @@ const nextConfig: NextConfig = {
     ];
   },
   
-  // Redirecciones para SEO
+  // Redirecciones para SEO. Solo aplican si esos dominios apuntan a este mismo sitio.
   async redirects() {
+    const canonicalHosts = [
+      "afhmetalmecanicos.com",
+      "www.afhmetalmecanicos.com",
+      "www.afhmetalmecanico.com",
+    ];
+
     return [
+      ...canonicalHosts.map((host) => ({
+        source: "/:path*",
+        has: [{ type: "host" as const, value: host }],
+        destination: "https://afhmetalmecanico.com/:path*",
+        permanent: true,
+      })),
       {
         source: '/home',
         destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/inicio',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/contacto',
+        destination: '/contact_us',
+        permanent: true,
+      },
+      {
+        source: '/nosotros',
+        destination: '/about_us',
+        permanent: true,
+      },
+      {
+        source: '/cotizacion',
+        destination: '/contact_us',
         permanent: true,
       },
     ];
