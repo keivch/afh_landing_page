@@ -1,130 +1,213 @@
 "use client";
 
-import { useEffect } from "react";
-import Script from "next/script";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import CallToAction from "@/components/layout/callToAction";
+import Image from "next/image";
+import Link from "next/link";
+import {
+  ArrowRight,
+  Building2,
+  Factory,
+  HardHat,
+  MapPin,
+  ShieldCheck,
+  Wrench,
+} from "lucide-react";
+import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/footer";
-import Introduction from "@/components/layout/Introduction";
+import CallToAction from "@/components/layout/callToAction";
 import ClientsComponent from "@/components/home/ClientsComponent";
 import PortfolioComponent from "@/components/home/PortfolioComponent";
-import ScrollVelocity from "@/components/animations/ScrollVelocity";
-import Header from "@/components/layout/Header";
-import Card from "@/components/ui/Card";
+import FaqSection from "@/components/home/FaqSection";
+import { cities, services, site } from "@/lib/site";
+
+const serviceIcons = [HardHat, Wrench, Building2, Factory, ShieldCheck, Factory];
+
+const steps = [
+  {
+    step: "01",
+    title: "Cuéntanos el proyecto",
+    text: "Alcance, sitio, plazos y referencias. Con eso armamos la visita.",
+  },
+  {
+    step: "02",
+    title: "Visita y cotización",
+    text: "Revisamos la obra y te entregamos una propuesta clara, sin letra pequeña.",
+  },
+  {
+    step: "03",
+    title: "Fabricación y montaje",
+    text: "Producimos en taller y montamos en planta con el equipo de AFH.",
+  },
+  {
+    step: "04",
+    title: "Entrega y soporte",
+    text: "Cerramos el trabajo según especificación y seguimos disponibles para mantenimiento.",
+  },
+];
 
 export default function HomeClient() {
-  const values = [
-    {
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          className="size-6 text-black"
-        >
-          <path
-            fillRule="evenodd"
-            d="M11.828 2.25c-.916 0-1.699.663-1.85 1.567l-.091.549a.798.798 0 0 1-.517.608 7.45 7.45 0 0 0-.478.198.798.798 0 0 1-.796-.064l-.453-.324a1.875 1.875 0 0 0-2.416.2l-.243.243a1.875 1.875 0 0 0-.2 2.416l.324.453a.798.798 0 0 1 .064.796 7.448 7.448 0 0 0-.198.478.798.798 0 0 1-.608.517l-.55.092a1.875 1.875 0 0 0-1.566 1.849v.344c0 .916.663 1.699 1.567 1.85l.549.091c.281.047.508.25.608.517.06.162.127.321.198.478a.798.798 0 0 1-.064.796l-.324.453a1.875 1.875 0 0 0 .2 2.416l.243.243c.648.648 1.67.733 2.416.2l.453-.324a.798.798 0 0 1 .796-.064c.157.071.316.137.478.198.267.1.47.327.517.608l.092.55c.15.903.932 1.566 1.849 1.566h.344c.916 0 1.699-.663 1.85-1.567l.091-.549a.798.798 0 0 1 .517-.608 7.52 7.52 0 0 0 .478-.198.798.798 0 0 1 .796.064l.453.324a1.875 1.875 0 0 0 2.416-.2l.243-.243c.648-.648.733-1.67.2-2.416l-.324-.453a.798.798 0 0 1-.064-.796c.071-.157.137-.316.198-.478.1-.267.327-.47.608-.517l.55-.091a1.875 1.875 0 0 0 1.566-1.85v-.344c0-.916-.663-1.699-1.567-1.85l-.549-.091a.798.798 0 0 1-.608-.517 7.507 7.507 0 0 0-.198-.478.798.798 0 0 1 .064-.796l.324-.453a1.875 1.875 0 0 0-.2-2.416l-.243-.243a1.875 1.875 0 0 0-2.416-.2l-.453.324a.798.798 0 0 1-.796.064 7.462 7.462 0 0 0-.478-.198.798.798 0 0 1-.517-.608l-.091-.55a1.875 1.875 0 0 0-1.85-1.566h-.344ZM12 15.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Z"
-            clipRule="evenodd"
-          />
-        </svg>
-      ),
-      image: "",
-      title: "Fabricación de metal",
-      description:
-        "Nos especializamos en la fabricación de metales a medida, creando componentes duraderos y precisos para diversas industrias.",
-    },
-    {
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          className="size-6 text-black"
-        >
-          <path
-            fillRule="evenodd"
-            d="M12 6.75a5.25 5.25 0 0 1 6.775-5.025.75.75 0 0 1 .313 1.248l-3.32 3.319c.063.475.276.934.641 1.299.365.365.824.578 1.3.64l3.318-3.319a.75.75 0 0 1 1.248.313 5.25 5.25 0 0 1-5.472 6.756c-1.018-.086-1.87.1-2.309.634L7.344 21.3A3.298 3.298 0 1 1 2.7 16.657l8.684-7.151c.533-.44.72-1.291.634-2.309A5.342 5.342 0 0 1 12 6.75ZM4.117 19.125a.75.75 0 0 1 .75-.75h.008a.75.75 0 0 1 .75.75v.008a.75.75 0 0 1-.75.75h-.008a.75.75 0 0 1-.75-.75v-.008Z"
-            clipRule="evenodd"
-          />
-        </svg>
-      ),
-      image: "",
-      title: "Maquinaria precisa",
-      description:
-        "Nuestros servicios de mecanizado utilizan tecnología avanzada para producir piezas con tolerancias estrictas y calidad superior.",
-    },
-    {
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          className="size-6 text-black"
-        >
-          <path d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32L19.513 8.2Z" />
-        </svg>
-      ),
-      image: "",
-      title: "Diseño personalizado",
-      description:
-        "Desde el concepto hasta la finalización, ofrecemos soluciones de diseño personalizadas para satisfacer sus necesidades específicas en materia de metalurgia.",
-    },
-  ];
-
-  useEffect(() => {
-    AOS.init({ duration: 1000, easing: "ease-in-out", once: true });
-  }, []);
-
   return (
     <>
-      <Script
-        id="ld-json-home"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: "AFH Metalmecánicos",
-            url: "https://www.afhmetalmecanicos.com",
-            // ... resto de datos estructurados
-          }),
-        }}
-      />
-
-      <div className="flex flex-col items-center">
-        <Header />
-        <div className="m-2 w-full" data-aos="fade-down">
-          <ScrollVelocity
-            texts={["Bienvenido a AFH Metalmecánicos"]}
-            velocity={100}
-            className="custom-scroll-text"
+      <Header />
+      <main>
+        <section className="relative isolate min-h-[88vh] w-full overflow-hidden bg-[#0b2239]">
+          <Image
+            src="/afh1.jpeg"
+            alt="Montaje de estructura metálica realizado por AFH Metalmecánicos en el Valle del Cauca"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
           />
-        </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#071525]/95 via-[#0b2239]/85 to-[#0b2239]/35" />
+          <div className="relative z-10 mx-auto flex min-h-[88vh] max-w-7xl flex-col justify-end px-6 pb-16 pt-28 md:pb-20">
+            <p className="mb-4 inline-flex w-fit items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-[#98e73c]">
+              <MapPin className="size-3.5" aria-hidden />
+              Palmira · Valle del Cauca · Desde 2017
+            </p>
+            <h1 className="max-w-4xl font-public-sans text-4xl font-bold leading-[1.05] text-white sm:text-5xl lg:text-6xl">
+              Montajes y mantenimiento industrial para la industria del Valle
+            </h1>
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-gray-200 sm:text-lg">
+              {site.legalName} fabrica, monta y mantiene estructuras, equipos y
+              soluciones metalmecánicas en {site.locality}, Cali, Yumbo, Jamundí
+              y Candelaria.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/contact_us"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#98e73c] px-6 py-3 font-semibold text-[#0b2239] shadow-lg transition hover:bg-[#81d323]"
+              >
+                Solicitar cotización
+                <ArrowRight className="size-4" aria-hidden />
+              </Link>
+              <a
+                href={site.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-lg border border-white/70 px-6 py-3 font-semibold text-white transition hover:bg-white hover:text-[#0b2239]"
+              >
+                Escribir por WhatsApp
+              </a>
+            </div>
+            <dl className="mt-12 grid max-w-3xl grid-cols-3 gap-3 border-t border-white/15 pt-6 text-white">
+              <div>
+                <dt className="text-[11px] uppercase tracking-wider text-gray-300 sm:text-xs">Experiencia</dt>
+                <dd className="mt-1 text-base font-bold leading-tight sm:text-2xl">Desde 2017</dd>
+              </div>
+              <div>
+                <dt className="text-[11px] uppercase tracking-wider text-gray-300 sm:text-xs">Cobertura</dt>
+                <dd className="mt-1 text-base font-bold leading-tight sm:text-2xl">Valle del Cauca</dd>
+              </div>
+              <div>
+                <dt className="text-[11px] uppercase tracking-wider text-gray-300 sm:text-xs">Atención</dt>
+                <dd className="mt-1 text-base font-bold leading-tight sm:text-2xl">Lun a sáb</dd>
+              </div>
+            </dl>
+          </div>
+        </section>
 
-        <div className="m-5" data-aos="fade-up">
-          <Introduction />
-        </div>
+        <section id="servicios" className="w-full bg-white py-16 md:py-24">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="max-w-2xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#5f8f18]">
+                Servicios
+              </p>
+              <h2 className="mt-3 font-public-sans text-3xl font-bold text-[#0b2239] md:text-4xl">
+                Metalmecánica para planta, obra y mantenimiento
+              </h2>
+              <p className="mt-4 leading-relaxed text-gray-600">
+                Acompañamos a ingenios, plantas de alimentos y constructoras
+                desde la fabricación en taller hasta el montaje en sitio.
+              </p>
+            </div>
+            <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {services.map((service, index) => {
+                const Icon = serviceIcons[index] ?? Wrench;
+                return (
+                  <article
+                    key={service.name}
+                    className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-[#98e73c] hover:shadow-lg"
+                  >
+                    <div className="flex size-11 items-center justify-center rounded-xl bg-[#0b2239] text-[#98e73c]">
+                      <Icon className="size-5" aria-hidden />
+                    </div>
+                    <h3 className="mt-5 font-public-sans text-xl font-semibold text-[#0b2239]">
+                      {service.name}
+                    </h3>
+                    <p className="mt-2 leading-relaxed text-gray-600">{service.description}</p>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
 
-        <div className="m-5" data-aos="zoom-in">
-          <Card items={values} title="Nuestros servicios" />
-        </div>
+        <section className="w-full bg-[#f4f7f2] py-16 md:py-24">
+          <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 lg:grid-cols-2">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl">
+              <Image
+                src="/estructura.jpg"
+                alt="Estructura metálica fabricada e instalada por AFH Metalmecánicos"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#5f8f18]">
+                Cómo trabajamos
+              </p>
+              <h2 className="mt-3 font-public-sans text-3xl font-bold text-[#0b2239] md:text-4xl">
+                Un proceso corto, de la visita a la entrega
+              </h2>
+              <ol className="mt-8 space-y-6">
+                {steps.map((item) => (
+                  <li key={item.step} className="flex gap-4">
+                    <span className="font-public-sans text-lg font-bold text-[#98e73c]">
+                      {item.step}
+                    </span>
+                    <div>
+                      <h3 className="font-semibold text-[#0b2239]">{item.title}</h3>
+                      <p className="mt-1 text-gray-600">{item.text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </section>
 
-        <div className="m-5" data-aos="fade-right">
-          <ClientsComponent />
-        </div>
+        <ClientsComponent />
+        <PortfolioComponent />
 
-        <div className="m-5" data-aos="fade-left">
-          <PortfolioComponent />
-        </div>
+        <section className="w-full bg-[#0b2239] py-16 text-white md:py-20">
+          <div className="mx-auto max-w-7xl px-6">
+            <h2 className="font-public-sans text-3xl font-bold md:text-4xl">
+              Cobertura en el Valle del Cauca
+            </h2>
+            <p className="mt-4 max-w-2xl text-gray-300">
+              El taller está en Palmira y los montajes salen a planta en los
+              municipios donde opera la industria de la región.
+            </p>
+            <ul className="mt-8 flex flex-wrap gap-3">
+              {cities.map((city) => (
+                <li
+                  key={city}
+                  className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm font-medium"
+                >
+                  {city}
+                </li>
+              ))}
+              <li className="rounded-full bg-[#98e73c] px-4 py-2 text-sm font-semibold text-[#0b2239]">
+                Todo el Valle del Cauca
+              </li>
+            </ul>
+          </div>
+        </section>
 
-        <div data-aos="flip-up">
-          <CallToAction />
-        </div>
-
-
-      </div>
+        <FaqSection />
+        <CallToAction />
+      </main>
       <Footer />
     </>
   );

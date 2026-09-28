@@ -2,9 +2,9 @@ export default function Contacts() {
   return (
     <section className="flex flex-col w-full px-10 md:px-30 gap-10">
       <section className="font-bold font-public-sans">
-        <h1 className="font-public-sans text-black text-lg">
+        <h2 className="font-public-sans text-black text-lg">
           Nuestra información de contacto
-        </h1>
+        </h2>
       </section>
       <section className="flex flex-col-2 gap-5">
         <div className="w-2/5 flex flex-col border-t gap-2 border-gray-500/10 pt-2">

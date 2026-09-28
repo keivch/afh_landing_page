@@ -1,197 +1,282 @@
-'use client';
-import { useState } from 'react';
-import { Play, X } from 'lucide-react';
+"use client";
 
-interface Image {
-    id: number;
-    url: string;
-    alt: string;
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import { Play, X } from "lucide-react";
+
+interface GalleryImage {
+  id: number;
+  url: string;
+  alt: string;
+  title: string;
 }
 
-interface Video {
-    id: number;
-    url: string;
-    thumbnail: string;
-    title: string;
-    description?: string;
+interface GalleryVideo {
+  id: number;
+  url: string;
+  poster: string;
+  title: string;
+  description: string;
 }
+
+const videos: GalleryVideo[] = [
+  {
+    id: 1,
+    url: "/videos/soldadura.mp4",
+    poster: "/afh2.jpeg",
+    title: "Soldadura",
+    description: "Trabajo de soldadura en taller y en obra.",
+  },
+  {
+    id: 2,
+    url: "/videos/escalera.mp4",
+    poster: "/galeria/balcon.jpg",
+    title: "Escaleras y barandas",
+    description: "Montaje de escalera y elementos de circulación.",
+  },
+  {
+    id: 3,
+    url: "/videos/puertas.mp4",
+    poster: "/galeria/ventana.jpg",
+    title: "Puertas y ventanería",
+    description: "Fabricación de puertas y marcos metálicos.",
+  },
+  {
+    id: 4,
+    url: "/videos/fachada.mp4",
+    poster: "/galeria/fachada.jpg",
+    title: "Fachada",
+    description: "Cerramiento y fachada metálica en obra.",
+  },
+  {
+    id: 5,
+    url: "/videos/fuera.mp4",
+    poster: "/galeria/fuera.jpg",
+    title: "Montaje exterior",
+    description: "Avance del trabajo visto desde el exterior de la obra.",
+  },
+];
+
+const images: GalleryImage[] = [
+  {
+    id: 1,
+    url: "/galeria/fachada.jpg",
+    alt: "Barandas de vidrio instaladas sobre una losa en una vivienda en obra",
+    title: "Barandas de vidrio",
+  },
+  {
+    id: 2,
+    url: "/galeria/vigas.jpg",
+    alt: "Pérgola de acero y celosías metálicas en una terraza",
+    title: "Pérgola y celosías",
+  },
+  {
+    id: 3,
+    url: "/galeria/ventana.jpg",
+    alt: "Ventanal con marco metálico y cubierta de acero",
+    title: "Ventanal metálico",
+  },
+  {
+    id: 4,
+    url: "/galeria/balcon.jpg",
+    alt: "Viga metálica y baranda de vidrio en un balcón",
+    title: "Estructura de balcón",
+  },
+  {
+    id: 5,
+    url: "/galeria/soportes.jpg",
+    alt: "Detalle de soportes y perfiles metálicos bajo una cubierta de vidrio",
+    title: "Soportes de cubierta",
+  },
+  {
+    id: 6,
+    url: "/galeria/fuera.jpg",
+    alt: "Vista exterior de la obra con cerramiento y cubierta",
+    title: "Vista exterior",
+  },
+  {
+    id: 7,
+    url: "/galeria/muro.jpg",
+    alt: "Muro calado y estructura metálica superior en la misma obra",
+    title: "Detalle de fachada",
+  },
+];
 
 export default function MediaSection() {
-    const [selectedImage, setSelectedImage] = useState<Image | null>(null);
-    const [selectedVideo, setSelectedVideo] = useState<Video | null>(null);
+  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
+  const [selectedVideo, setSelectedVideo] = useState<GalleryVideo | null>(null);
 
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setSelectedImage(null);
+        setSelectedVideo(null);
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, []);
 
-    // Videos cortos - reemplaza con tus propios videos
-    const videos: Video[] = [
-        {
-            id: 1,
-            url: '/videos/soldadura.mp4',
-            thumbnail: 'https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800',
-            title: 'Proceso de Soldadura',
-            description: 'Técnicas especializadas de soldadura industrial'
-        },
-        {
-            id: 2,
-            url: '/videos/escalera.mp4',
-            thumbnail: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800',
-            title: 'Maquinaria CNC',
-            description: 'Precisión en corte y mecanizado'
-        },
-        {
-            id: 3,
-            url: '/videos/puertas.mp4',
-            thumbnail: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800',
-            title: 'Proceso de Ensamble',
-            description: 'Montaje de estructuras metálicas'
-        },
-        {
-            id: 4,
-            url: '/videos/fachada.mp4',
-            thumbnail: 'https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=800',
-            title: 'Control de Calidad',
-            description: 'Verificación y pruebas de productos'
-        },
-    ];
+  useEffect(() => {
+    document.body.style.overflow = selectedImage || selectedVideo ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedImage, selectedVideo]);
 
-    // Imágenes de ejemplo
-    const images: Image[] = [
-        { id: 1, url: '/galeria/fachada.jpg', alt: 'Taller metalmecánico' },
-        { id: 2, url: '/galeria/ventana.jpg', alt: 'Maquinaria industrial' },
-        { id: 3, url: '/galeria/vigas.jpg', alt: 'Proceso de soldadura' },
-        { id: 4, url: '/galeria/muro.jpg', alt: 'Equipo de trabajo' },
-        { id: 5, url: '/galeria/soportes.jpg', alt: 'Productos terminados' },
-        { id: 6, url: '/galeria/balcon.jpg', alt: 'Instalaciones' },
-    ];
+  return (
+    <>
+      <section className="bg-[#0b2239] text-white">
+        <div className="mx-auto max-w-7xl px-6 py-16 md:py-24">
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#98e73c]">
+            Galería
+          </p>
+          <h1 className="mt-3 max-w-3xl font-public-sans text-4xl font-bold leading-tight md:text-5xl">
+            Trabajos de estructura, cerramiento y soldadura
+          </h1>
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-gray-300">
+            Fotos y videos de obras reales: pérgolas, barandas, ventanería,
+            fachadas y soldadura hechas por AFH Metalmecánicos.
+          </p>
+        </div>
+      </section>
 
-    return (
-        <section className="py-16 px-4">
-            <div className="max-w-7xl mx-auto">
-                {/* Encabezado */}
-                <div className="text-center mb-12">
-                    <h1 className="text-3xl font-bold text-center mb-6">
-                        Nuestra Experiencia en Acción
-                    </h1>
-                    <p className="text-1xl font-public-sans text-gray-700 leading-relaxed">
-                        Descubre cómo transformamos el metal en soluciones industriales de alta calidad
-                    </p>
-                </div>
+      <section className="w-full bg-white py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <h2 className="font-public-sans text-3xl font-bold text-[#0b2239] md:text-4xl">
+            Videos de obra
+          </h2>
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {videos.map((video) => (
+              <button
+                key={video.id}
+                type="button"
+                className="group overflow-hidden rounded-2xl border border-gray-200 bg-white text-left shadow-sm"
+                onClick={() => setSelectedVideo(video)}
+              >
+                <span className="relative block aspect-video">
+                  <Image
+                    src={video.poster}
+                    alt=""
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                  <span className="absolute inset-0 bg-[#0b2239]/25 transition group-hover:bg-[#0b2239]/40" />
+                  <span className="absolute inset-0 flex items-center justify-center">
+                    <span className="flex size-14 items-center justify-center rounded-full bg-[#98e73c] text-[#0b2239] shadow-lg">
+                      <Play className="ml-0.5 size-6" fill="currentColor" aria-hidden />
+                    </span>
+                  </span>
+                </span>
+                <span className="block p-5">
+                  <span className="block font-public-sans text-lg font-semibold text-[#0b2239]">
+                    {video.title}
+                  </span>
+                  <span className="mt-1 block text-sm leading-relaxed text-gray-600">
+                    {video.description}
+                  </span>
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
 
-                {/* Grid de Videos Cortos */}
-                <div className="mb-16">
-                    <h3 className="text-3xl font-bold text-center mb-8">
-                        Nuestros Procesos
-                    </h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" data-aos="zoom-in">
-                        {videos.map((video) => (
-                            <div
-                                key={video.id}
-                                className="relative group cursor-pointer"
-                                onClick={() => setSelectedVideo(video)}
-                            >
-                                <div className="relative aspect-[9/16] rounded-xl overflow-hidden shadow-xl">
-                                    <img
-                                        src={video.thumbnail}
-                                        alt={video.title}
-                                        className="w-full h-full object-cover"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+      <section className="w-full bg-[#f7f8fa] py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-6">
+          <h2 className="font-public-sans text-3xl font-bold text-[#0b2239] md:text-4xl">
+            Fotos del proyecto
+          </h2>
+          <p className="mt-4 max-w-2xl text-gray-600">
+            Estructura metálica, barandas de vidrio, celosías y cerramientos
+            instalados en obra.
+          </p>
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {images.map((image) => (
+              <button
+                key={image.id}
+                type="button"
+                className="overflow-hidden rounded-2xl border border-gray-200 bg-white text-left shadow-sm"
+                onClick={() => setSelectedImage(image)}
+              >
+                <span className="relative block h-64">
+                  <Image
+                    src={image.url}
+                    alt={image.alt}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </span>
+                <span className="block px-5 py-4 font-semibold text-[#0b2239]">
+                  {image.title}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
 
-                                    {/* Botón Play */}
-                                    <div className="absolute inset-0 flex items-center justify-center">
-                                        <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform shadow-xl">
-                                            <Play className="w-8 h-8 text-white ml-1" fill="white" />
-                                        </div>
-                                    </div>
+      {selectedVideo && (
+        <div
+          className="fixed inset-0 z-[80] flex items-center justify-center bg-black/90 p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label={selectedVideo.title}
+          onClick={() => setSelectedVideo(null)}
+        >
+          <button
+            type="button"
+            className="absolute right-4 top-4 text-white"
+            aria-label="Cerrar video"
+            onClick={() => setSelectedVideo(null)}
+          >
+            <X className="size-8" />
+          </button>
+          <div
+            className="flex max-h-full w-full max-w-3xl flex-col items-center"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <p className="mb-3 text-center text-lg font-semibold text-white">
+              {selectedVideo.title}
+            </p>
+            <video
+              className="max-h-[75vh] max-w-full rounded-lg bg-black"
+              controls
+              autoPlay
+              poster={selectedVideo.poster}
+              src={selectedVideo.url}
+            >
+              Tu navegador no reproduce este video.
+            </video>
+          </div>
+        </div>
+      )}
 
-                                    {/* Info del video */}
-                                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                                        <h4 className="text-white font-bold text-lg mb-1">{video.title}</h4>
-                                        {video.description && (
-                                            <p className="text-gray-300 text-sm">{video.description}</p>
-                                        )}
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Galería de Fotos */}
-                <div>
-                    <h3 className="text-3xl font-bold text-center mb-8">
-                        Galería de Proyectos
-                    </h3>
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                        {images.map((image) => (
-                            <div
-                                key={image.id}
-                                className="relative aspect-square rounded-xl overflow-hidden cursor-pointer group"
-                                onClick={() => setSelectedImage(image)}
-                            >
-                                <img
-                                    src={image.url}
-                                    alt={image.alt}
-                                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Modal de Video */}
-                {selectedVideo && (
-                    <div
-                        className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
-                        onClick={() => setSelectedVideo(null)}
-                    >
-                        <button
-                            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10"
-                            onClick={() => setSelectedVideo(null)}
-                        >
-                            <X className="w-8 h-8" />
-                        </button>
-                        <div className="relative max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
-                            <div className="aspect-video bg-black rounded-lg overflow-hidden">
-                                <video
-                                    className="w-full h-full"
-                                    controls
-                                    autoPlay
-                                    src={selectedVideo.url}
-                                >
-                                    Tu navegador no soporta el elemento de video.
-                                </video>
-                            </div>
-                            <div className="mt-4 text-center">
-                                <h3 className="text-white text-2xl font-bold mb-2">{selectedVideo.title}</h3>
-                                {selectedVideo.description && (
-                                    <p className="text-gray-300">{selectedVideo.description}</p>
-                                )}
-                            </div>
-                        </div>
-                    </div>
-                )}
-
-                {/* Modal de Imagen */}
-                {selectedImage && (
-                    <div
-                        className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
-                        onClick={() => setSelectedImage(null)}
-                    >
-                        <button
-                            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
-                            onClick={() => setSelectedImage(null)}
-                        >
-                            <X className="w-8 h-8" />
-                        </button>
-                        <img
-                            src={selectedImage.url}
-                            alt={selectedImage.alt}
-                            className="max-w-full max-h-full object-contain rounded-lg"
-                        />
-                    </div>
-                )}
-            </div>
-        </section>
-    );
+      {selectedImage && (
+        <div
+          className="fixed inset-0 z-[80] flex items-center justify-center bg-black/90 p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label={selectedImage.title}
+          onClick={() => setSelectedImage(null)}
+        >
+          <button
+            type="button"
+            className="absolute right-4 top-4 text-white"
+            aria-label="Cerrar imagen"
+            onClick={() => setSelectedImage(null)}
+          >
+            <X className="size-8" />
+          </button>
+          <img
+            src={selectedImage.url}
+            alt={selectedImage.alt}
+            className="max-h-[85vh] max-w-full rounded-lg object-contain"
+          />
+        </div>
+      )}
+    </>
+  );
 }

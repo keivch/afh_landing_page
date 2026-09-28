@@ -1,37 +1,28 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@100..900&display=swap');
 @import "tailwindcss";
-
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-public-sans: 'Public Sans', sans-serif;
-  --font-public-sans  : "Public Sans", sans-serif;
-  --font-optical-sizing: auto;
-  --font-weight: <weight>;
-  --font-style: normal;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --background: #fff;
-    --foreground: #0200009c;
-  }
+  --font-sans: var(--font-brand), "Arial", sans-serif;
+  --font-public-sans: var(--font-brand), "Arial", sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Public Sans", Arial, Helvetica, sans-serif;
+  font-family: var(--font-brand), Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 7.5rem;
 }

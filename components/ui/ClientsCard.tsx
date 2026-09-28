@@ -14,9 +14,10 @@ export default function ClientsCard({ title, description, image }: PropsClientCa
             <div className="relative w-full h-32 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4">
                 <Image
                     src={image}
-                    alt={title}
-                    className="object-contain transition-all duration-300 ease-in-out group-hover:scale-110"
-                    fill={true}
+                    alt={`Logo de ${title}, cliente de AFH Metalmecánicos`}
+                    className="object-contain p-4 transition-all duration-300 ease-in-out group-hover:scale-105"
+                    fill
+                    sizes="160px"
                 />
                 
                 <div className="absolute inset-0 bg-blue-600/0 group-hover:bg-blue-600/5 transition-all duration-300"></div>
